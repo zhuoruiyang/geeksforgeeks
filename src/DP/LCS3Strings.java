@@ -1,3 +1,4 @@
+package DP;
 
 public class LCS3Strings {
 	public static void main(String[] args) {

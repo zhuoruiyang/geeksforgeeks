@@ -1,3 +1,4 @@
+package DP;
 /*
  * https://www.geeksforgeeks.org/dynamic-programming-set-6-min-cost-path/
  * Written on Jan. 19th, 2018.
