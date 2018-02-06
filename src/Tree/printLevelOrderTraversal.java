@@ -25,19 +25,20 @@ public class printLevelOrderTraversal {
 	private static void printLOT(TreeNode root) {
 		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
-		while(!queue.isEmpty()) {
-			TreeNode node = queue.poll();
-			int count = 0;
-			if(node.left != null) {
-				queue.add(node.left);
-				count++;
-			}	
-			if(node.right != null) {
-				queue.add(node.right);
-				count++;
-			}
+		while(!queue.isEmpty()) {		
+			int numOfNodes = queue.size();
+			StringBuilder sb = new StringBuilder();
+			while(numOfNodes > 0) {
+				TreeNode node = queue.poll();
+				numOfNodes--;
+				sb.append(node.val).append(", ");
+				if(node.left != null)
+					queue.add(node.left);
+				if(node.right != null)
+					queue.add(node.right);
 				
-			
+			}
+			System.out.println(sb.toString());
 		}
 	}
 }
