@@ -2,7 +2,7 @@ package Tree;
 
 import java.util.Stack;
 
-public class InorderTreversalNoRecursion {
+public class InorderTraversalNoRecursion {
 	public static void main(String[] args) {
 	    // Let us create binary tree shown in above diagram
 		   /*             1
