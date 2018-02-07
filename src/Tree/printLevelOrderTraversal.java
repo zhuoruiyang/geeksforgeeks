@@ -6,7 +6,7 @@ import java.util.Queue;
 public class printLevelOrderTraversal {
 	public static void main(String[] args) {
         // Let us create binary tree shown in above diagram
-       /*            1
+       /*             1
                    /     \
                   2       3
                 /   \       \
