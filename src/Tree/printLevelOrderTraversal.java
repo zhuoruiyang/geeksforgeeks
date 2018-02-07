@@ -6,14 +6,14 @@ import java.util.Queue;
 public class printLevelOrderTraversal {
 	public static void main(String[] args) {
         // Let us create binary tree shown in above diagram
-       /*               1
+       /*            1
                    /     \
                   2       3
                 /   \       \
                4     5       6
         */
 		
-        TreeNode root = new TreeNode(1);
+		TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
         root.left.left = new TreeNode(4);
