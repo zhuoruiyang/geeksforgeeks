@@ -23,20 +23,16 @@ public class InorderTreversalNoRecursion {
 
 	private static void print(TreeNode root) {
 		Stack<TreeNode> stack = new Stack<>();
-		if(root.left != null)
-			stack.push(root.left);
 		stack.push(root);
-		if(root.right != null)
-			stack.push(root.right);
-		
-		while(!stack.isEmpty()) {
-			TreeNode node = stack.pop();
-			System.out.print(node.val + ", ");
-			if(node.left != null)
-				stack.push(node.left);
-			stack.push(node);
-			if(node.right != null)
-				stack.push(node.right);
+		TreeNode curr = root.left;
+		while(!stack.isEmpty() || curr != null) {
+			while(curr != null) {
+				stack.push(curr);
+				curr = curr.left;
+			}
+			curr = stack.pop();
+			System.out.print(curr.val + ", ");
+			curr = curr.right;
 		}
 	}
 }
