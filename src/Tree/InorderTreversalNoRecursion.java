@@ -24,7 +24,11 @@ public class InorderTreversalNoRecursion {
 	private static void print(TreeNode root) {
 		Stack<TreeNode> stack = new Stack<>();
 		stack.push(root);
-		TreeNode curr = root.left;
+		TreeNode curr = null;
+		if(root.left != null)
+			curr = root.left;
+		else if(root.right != null)
+			curr = root.right;
 		while(!stack.isEmpty() || curr != null) {
 			while(curr != null) {
 				stack.push(curr);
