@@ -2,7 +2,7 @@ package Tree;
 
 import java.util.Stack;
 
-public class IterativePostOrderTraversalOneStack {
+public class IterativePostorderTraversalTwoStacks {
 	public static void main(String[] args) {
         // Let us create binary tree shown in above diagram
        /*             1
@@ -22,29 +22,19 @@ public class IterativePostOrderTraversalOneStack {
 	}
 	
 	private static void print(TreeNode root) {
-		Stack<TreeNode> stack = new Stack<>();
-		if(root.right != null)
-			stack.push(root.right);
-		stack.push(root);
-		root = root.left;
+		Stack<TreeNode> stackRev = new Stack<>();
+		Stack<TreeNode> stackPostOrder = new Stack<>();
+		stackRev.push(root);
 		TreeNode curr = null;
-		while(!stack.isEmpty()) {
-			while(root != null) {
-				if(root.right != null)
-					stack.push(root.right);
-				stack.push(root);
-				root = root.left;
-			}
-			root = stack.pop();
-			if(!stack.isEmpty() && root.right == stack.peek()) {
-				curr = stack.pop();
-				stack.push(root);
-				root = curr;
-			}
-			else {
-				System.out.print(root.val + ", ");
-				root = null;
-			}
+		while(!stackRev.isEmpty()) {
+			curr = stackRev.pop();
+			stackPostOrder.push(curr);
+			if(curr.left != null) 
+				stackRev.push(curr.left);
+			if(curr.right != null)
+				stackRev.push(curr.right);
 		}
+		while(!stackPostOrder.isEmpty())
+			System.out.print(stackPostOrder.pop().val + ", ");
 	}
 }
