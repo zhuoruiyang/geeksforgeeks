@@ -1,8 +1,9 @@
 package Tree;
 
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class InorderTraversalNoRecursion {
+public class ReverseLevelOrderTraversal {
 	public static void main(String[] args) {
     // Let us create binary tree shown in above diagram
 	   /*             1
@@ -20,23 +21,19 @@ public class InorderTraversalNoRecursion {
 	    root.right.right = new TreeNode(6);
 	    print(root);
 	}
-
+	
 	private static void print(TreeNode root) {
-		Stack<TreeNode> stack = new Stack<>();
-		stack.push(root);
-		TreeNode curr = null;
-		if(root.left != null)
-			curr = root.left;
-		else if(root.right != null)
-			curr = root.right;
-		while(!stack.isEmpty() || curr != null) {
-			while(curr != null) {
-				stack.push(curr);
-				curr = curr.left;
-			}
-			curr = stack.pop();
-			System.out.print(curr.val + ", ");
-			curr = curr.right;
+		StringBuilder sb = new StringBuilder();
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		while(!queue.isEmpty()) {
+			TreeNode curr = queue.poll();
+			sb.append(", " +  curr.val);
+			if(curr.left != null)
+				queue.add(curr.left);
+			if(curr.right != null)
+				queue.add(curr.right);
 		}
+		System.out.print(sb.reverse().toString());
 	}
 }
