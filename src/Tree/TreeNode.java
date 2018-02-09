@@ -5,6 +5,7 @@ package Tree;
 // A Binary Tree Node
 class TreeNode {
     int val;
+    char key;
     TreeNode left;
     TreeNode right;
      
@@ -12,6 +13,12 @@ class TreeNode {
     TreeNode (int val) {
         this.val = val;
         left = null;
-        right =null;
+        right = null;
+    }
+    
+    TreeNode (char key) {
+    		this.key = key;
+    		left = null;
+    		right = null;
     }
 }
